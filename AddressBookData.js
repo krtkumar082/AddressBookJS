@@ -239,6 +239,18 @@ function sortByPersonFirstName(){
     addressArray.sort((element1, element2) => element1.fName.localeCompare(element2.fName));
 }
 
+function sortByPersonCity(){
+    addressArray.sort((element1, element2) => element1.city.localeCompare(element2.city));
+}
+
+function sortByPersonState(){
+    addressArray.sort((element1, element2) => element1.state.localeCompare(element2.state));
+}
+
+function sortByPersonZip(){
+    addressArray.sort((element1, element2) => element1.zip.localeCompare(element2.zip));
+}
+
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
  let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
@@ -252,6 +264,15 @@ try{
  {  console.log(e);
     }
     console.log(addressArray);
-    console.log("After sorting");
+    console.log("After sorting  (by first name)");
     sortByPersonFirstName();
+    console.log(addressArray);
+    console.log("After sorting  (by city)");
+    sortByPersonCity();
+    console.log(addressArray);
+    sortByPersonState();
+    console.log("After sorting  (by state)");
+    console.log(addressArray);
+    sortByPersonZip();
+    console.log("After sorting  (by zip)");
     console.log(addressArray);
