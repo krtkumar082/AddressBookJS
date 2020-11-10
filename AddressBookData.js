@@ -101,9 +101,13 @@ class AddressBookData{
         return "FirstName = " + this.fName + ", LastName = " + this.lName + ", Address = " + this.address + ", City = " + this.city + ", State = " + this.state + ", Zipcode = " + this.zip + ", PhoneNo = " + this.phNo + ", Email = " + this.email
     }
 }
+let addressArray=new Array();
 try{
- let addressBookData = new AddressBookData("Kirti", "957umar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
- console.log(addressBookData.toString());
+ let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
+ let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
+ addressArray.push(addressBookData1);
+ addressArray.push(addressBookData2);
 }catch(e)
  {  console.log(e);
     }
+    console.log(addressArray)
