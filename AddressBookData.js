@@ -119,6 +119,14 @@ function getContactByState(state){
     return addressArray.filter(element=>element.state==state);
 }
 
+function searchPersonByCity(fname,city){
+    return addressArray.filter(element=>element.fName==fname && element.city==city);
+}
+
+function searchPersonByState(fname,state){
+    return addressArray.filter(element=>element.fName==fname && element.state==state);
+}
+
 function addContact(contact){
     if(checkExist(contact.fName,contact.lName)==null)
          {
@@ -219,8 +227,12 @@ function getCount(){
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
  let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
+ let addressBookData3=new AddressBookData("Kkkkk","Ffffff","Address1234","Jaipur","Rajasthan","232323","91 8888888888","abc@gmail.com");
+ let addressBookData4=new AddressBookData("Deepak","Kumar","Address2344567","City1","State1","121212","91 2222222222","ajcv@gmail.com");
  addContact(addressBookData1);
  addContact(addressBookData2);
+ addContact(addressBookData3);
+ addContact(addressBookData4);
 }catch(e)
  {  console.log(e);
     }
@@ -230,3 +242,7 @@ try{
     console.log(getContactByCity("Jaipur"));
     console.log("Contact by state");
     console.log(getContactByState("State1"));
+    console.log("view by fname and city");
+    console.log(searchPersonByCity("Deepak","City1"));
+    console.log("view by fname and state");
+    console.log(searchPersonByState("Deepak","State1"));
