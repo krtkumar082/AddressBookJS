@@ -111,21 +111,7 @@ function checkExist(fname,lname){
     return contact;
 }
 
-function getContactByCity(city){
-    return addressArray.filter(element=>element.city==city);
-}
 
-function getContactByState(state){
-    return addressArray.filter(element=>element.state==state);
-}
-
-function searchPersonByCity(fname,city){
-    return addressArray.filter(element=>element.fName==fname && element.city==city);
-}
-
-function searchPersonByState(fname,state){
-    return addressArray.filter(element=>element.fName==fname && element.state==state);
-}
 
 function addContact(contact){
     if(checkExist(contact.fName,contact.lName)==null)
@@ -223,6 +209,31 @@ else{
 function getCount(){
     return addressArray.reduce(count=> count+1,0);
 }
+function getContactByCity(city){
+    return addressArray.filter(element=>element.city==city);
+}
+
+function getContactByState(state){
+    return addressArray.filter(element=>element.state==state);
+}
+
+function searchPersonByCity(fname,city){
+    return addressArray.filter(element=>element.fName==fname && element.city==city);
+}
+
+function searchPersonByState(fname,state){
+    return addressArray.filter(element=>element.fName==fname && element.state==state);
+}
+
+function getCountByCity(city){
+    return addressArray.filter(element=>element.city==city).reduce(count=>count+1,0);
+
+}
+
+function getCountByState(state){
+    return addressArray.filter(element=>element.state==state).reduce(count=>count+1,0);
+
+}
 
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
@@ -246,3 +257,7 @@ try{
     console.log(searchPersonByCity("Deepak","City1"));
     console.log("view by fname and state");
     console.log(searchPersonByState("Deepak","State1"));
+    console.log("no of contacts by city");
+    console.log(getCountByCity("Jaipur"));
+    console.log("no of contacts by state");
+    console.log(getCountByState("Rajasthan"));
