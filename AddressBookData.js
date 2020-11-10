@@ -193,6 +193,10 @@ else{
 }
 }
 
+function getCount(){
+    return addressArray.reduce(count=> count+1,0);
+}
+
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
  let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
@@ -204,5 +208,7 @@ try{
     console.log(addressArray);
 updateContact("Johny","Kapoor");
 console.log(addressArray);
+console.log("Total contacts in book : "+ getCount());
 deleteContact("Johny","Kapoor");
 console.log(addressArray);
+console.log("Total contacts in book after deletion : "+ getCount());
