@@ -102,6 +102,80 @@ class AddressBookData{
     }
 }
 let addressArray=new Array();
+function checkExist(fname,lname){
+    let contact;
+    addressArray.forEach(element => {
+        if(element.fName==fname && element.lName==lname)
+            contact= element;      
+    });
+    return contact;
+}
+
+function updateContact(fname,lname){
+    let contact=checkExist(fname,lname);
+    if(contact===undefined){
+        console.log("Contact not found");
+        return;
+    }
+    else{
+        console.log("1. Edit Firstname");
+        console.log("2. Edit Lastname");
+        console.log("3.Edit address");
+        console.log("4.Edit city");
+        console.log("5.Edit state");
+        console.log("6.Edit zip");
+        console.log("7.Edit phone number");
+        console.log("8.Edit email");
+        const prompt = require("prompt-sync")();
+        let option = parseInt(prompt("Choose a number for updation"));
+        switch(option){
+            case 1:
+                fName = prompt("Enter Updated Firstname");
+                contact.fName = fName;
+                break;
+
+            case 2:
+                lName = prompt("Enter Updated Lastname");
+                contact.lName = lName;
+                break;
+                
+            case 3:
+                address = prompt("Enter Updated address");
+                contact.address = address;
+                break;
+
+            case 4:
+                city = prompt("Enter Updated city");
+                contact.city = city;
+                break;
+                
+            case 5:
+                state = prompt("Enter Updated state");
+                contact.state = state;
+                break;
+                
+            case 6:
+                zip = prompt("Enter Updated zip");
+                contact.zip = zip;
+                break;
+
+            case 7:
+                phNo = prompt("Enter Updated PhoneNo");
+                contact.phNo = phNo;
+                break;
+                
+             case 8:
+                email = prompt("Enter Updated Email");
+                contact.email = email;
+                break;
+                
+                default:
+                    console.log("Not valid");
+
+        }
+    }
+}
+
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
  let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
@@ -110,4 +184,6 @@ try{
 }catch(e)
  {  console.log(e);
     }
-    console.log(addressArray)
+    console.log(addressArray);
+updateContact("Johny","Kapoor");
+console.log(addressArray);
