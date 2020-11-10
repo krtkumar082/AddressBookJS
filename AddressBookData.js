@@ -235,6 +235,10 @@ function getCountByState(state){
 
 }
 
+function sortByPersonFirstName(){
+    addressArray.sort((element1, element2) => element1.fName.localeCompare(element2.fName));
+}
+
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
  let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
@@ -248,16 +252,6 @@ try{
  {  console.log(e);
     }
     console.log(addressArray);
-    console.log("Total Contacts in book : "+getCount());
-    console.log("Contact by city");
-    console.log(getContactByCity("Jaipur"));
-    console.log("Contact by state");
-    console.log(getContactByState("State1"));
-    console.log("view by fname and city");
-    console.log(searchPersonByCity("Deepak","City1"));
-    console.log("view by fname and state");
-    console.log(searchPersonByState("Deepak","State1"));
-    console.log("no of contacts by city");
-    console.log(getCountByCity("Jaipur"));
-    console.log("no of contacts by state");
-    console.log(getCountByState("Rajasthan"));
+    console.log("After sorting");
+    sortByPersonFirstName();
+    console.log(addressArray);
