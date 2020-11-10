@@ -176,6 +176,23 @@ function updateContact(fname,lname){
     }
 }
 
+function deleteContact(fname,lname){
+  let contact=checkExist(fname,lname);
+  if(contact===undefined){
+    console.log("Contact not found");
+    return;
+}
+else{
+   for(let i=0;i<addressArray.length;i++){
+       if(addressArray[i].fName==fname && addressArray[i].lName==lname && i<addressArray.length-1)
+             addressArray.splice(i,1);
+      else if(addressArray[i].fName==fname && addressArray[i].lName==lname && i==addressArray.length-1)
+      addressArray.pop();
+   }
+   console.log("Contact with first name "+fname+" and last name "+lname+" is deleted");
+}
+}
+
 try{
  let addressBookData1 = new AddressBookData("Kirti", "Kumar", "House no", "City1", "State1", "332315", "99 9999999999", "abc@gmail.com")
  let addressBookData2=new AddressBookData("Johny","Kapoor","House no2345","Jaipur","Rajasthan","323232","91 99999999999","abc@yahoo.com");
@@ -186,4 +203,6 @@ try{
     }
     console.log(addressArray);
 updateContact("Johny","Kapoor");
+console.log(addressArray);
+deleteContact("Johny","Kapoor");
 console.log(addressArray);
