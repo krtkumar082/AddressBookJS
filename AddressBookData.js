@@ -111,6 +111,13 @@ function checkExist(fname,lname){
     return contact;
 }
 
+function getContactByCity(city){
+    return addressArray.filter(element=>element.city==city);
+}
+
+function getContactByState(state){
+    return addressArray.filter(element=>element.state==state);
+}
 
 function addContact(contact){
     if(checkExist(contact.fName,contact.lName)==null)
@@ -218,3 +225,8 @@ try{
  {  console.log(e);
     }
     console.log(addressArray);
+    console.log("Total Contacts in book : "+getCount());
+    console.log("Contact by city");
+    console.log(getContactByCity("Jaipur"));
+    console.log("Contact by state");
+    console.log(getContactByState("State1"));
